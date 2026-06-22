@@ -1,0 +1,273 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+    --primary-bg: #f5f3ec; /* Cream/Beige from mockup */
+    --secondary-bg: #1e3b2b; /* Forest Green */
+    --accent-gold: #b38b4d;
+    --text-dark: #2b2b2b;
+    --text-light: #f5f3ec;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--primary-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* --- NAVIGATION & HEADER --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: var(--primary-bg);
+    border-bottom: 2px solid var(--accent-gold);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    text-align: center;
+    flex: 1;
+}
+
+.logo-container img {
+    height: 80px; /* Adjust based on your logo export */
+}
+
+nav {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent-gold);
+}
+
+/* Mobile Burger Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    nav {
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-bg);
+        padding: 2rem 0;
+        text-align: center;
+        border-bottom: 2px solid var(--accent-gold);
+    }
+    nav.active {
+        display: flex;
+    }
+    .hamburger {
+        display: flex;
+    }
+    header {
+        justify-content: space-between;
+    }
+    .logo-container {
+        flex: 0;
+    }
+}
+
+/* --- BUTTONS & ACCENTS --- */
+.btn-primary {
+    background-color: var(--secondary-bg);
+    color: var(--text-light);
+    padding: 10px 24px;
+    border: 2px solid var(--secondary-bg);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--secondary-bg);
+}
+
+.pattern-border {
+    height: 10px;
+    background: repeating-linear-gradient(
+        45deg,
+        var(--secondary-bg),
+        var(--secondary-bg) 10px,
+        var(--accent-gold) 10px,
+        var(--accent-gold) 20px,
+        #c84b31 20px,
+        #c84b31 30px
+    ); /* Simulated African print border from mockup */
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--secondary-bg);
+    color: var(--text-light);
+    padding: 3rem 5%;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: var(--accent-gold);
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+/* --- policies --- */
+/* Add to styles.css */
+.policy-container {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.policy-container h1 { 
+    font-family: var(--font-heading); 
+    color: var(--accent-gold); 
+    margin-bottom: 2rem; 
+    text-align: center; 
+    border-bottom: 1px solid #eee; 
+    padding-bottom: 1rem; 
+}
+.policy-content p { 
+    margin-bottom: 1rem; 
+    color: var(--text-dark);
+}
+
+/* --- GLOBAL FIXES --- */
+html, body {
+    overflow-x: hidden; /* Prevents horizontal scroll globally */
+}
+
+img {
+    max-width: 100%;
+    height: auto; /* Ensures images scale proportionally */
+}
+
+/* --- UNIFIED HEADER & NAV STYLES --- */
+header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-container {
+    flex: none;
+    z-index: 10;
+}
+
+#main-nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Desktop View */
+@media (min-width: 769px) {
+    .hamburger { display: none; }
+    header { justify-content: center; }
+    
+    .logo-container {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    #main-nav {
+        width: 100%;
+        justify-content: center;
+        gap: 3rem;
+    }
+    
+    /* Creates the split gap for the logo in the center */
+    #main-nav a:nth-child(2) {
+        margin-right: 200px; 
+    }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    header { padding: 1rem 5%; }
+    
+    #main-nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-bg, #f5f3ec);
+        padding: 2rem 0;
+        text-align: center;
+        border-bottom: 2px solid var(--accent-gold, #b38b4d);
+        gap: 1.5rem;
+        z-index: 999;
+    }
+    
+    #main-nav.active {
+        display: flex;
+    }
+    
+    /* Reset the desktop split gap */
+    #main-nav a:nth-child(2) {
+        margin-right: 0;
+    }
+}

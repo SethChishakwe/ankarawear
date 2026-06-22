@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse ready-to-wear African fashion garments at Ankara Wear. Timeless styles handcrafted with care.">
+    <title>Store | Ankara Wear</title>
+    
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .store-header { text-align: center; padding: 3rem 5%; }
+        .store-header h1 { font-family: var(--font-heading); font-size: 2.5rem; }
+        
+        /* Main Grid & Layout */
+        .store-container { display: flex; gap: 2rem; padding: 0 5% 4rem; }
+        .product-grid { flex: 3; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 2rem; }
+        
+        .product-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        /* Uniform image scaling fix */
+        .product-card img { 
+            width: 100%; 
+            aspect-ratio: 3 / 4; 
+            object-fit: cover; 
+            border-radius: 4px; 
+            margin-bottom: 1rem; 
+        }
+        .product-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .product-card .price { color: var(--secondary-bg); font-weight: bold; margin-bottom: 1rem; }
+
+        /* Shopping Cart Sidebar Section */
+        .cart-sidebar { 
+            flex: 1; 
+            background: #fff; 
+            border: 2px solid var(--accent-gold); 
+            border-radius: 8px; 
+            padding: 1.5rem; 
+            align-self: flex-start;
+            position: sticky;
+            top: 120px;
+        }
+        .cart-sidebar h2 { font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1rem; color: var(--secondary-bg); border-bottom: 1px solid #eee; padding-bottom: 0.5rem;}
+        .cart-items { margin-bottom: 1.5rem; max-height: 250px; overflow-y: auto; }
+        
+        /* Updated Cart Item Layout for Remove Button */
+        .cart-item { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            font-size: 0.9rem; 
+            margin-bottom: 0.5rem; 
+            border-bottom: 1px dashed #eee; 
+            padding-bottom: 0.5rem;
+        }
+        .cart-item-info { flex: 1; padding-right: 10px; }
+        .cart-item-actions { display: flex; align-items: center; gap: 10px; }
+        
+        /* Remove Button Styles */
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #d9534f;
+            font-size: 1.2rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0 5px;
+            font-weight: bold;
+            transition: color 0.2s ease;
+        }
+        .remove-btn:hover {
+            color: #a94442;
+        }
+
+        .cart-total { font-weight: bold; font-size: 1.1rem; display: flex; justify-content: space-between; margin-bottom: 1.5rem; }
+        
+        /* Order Form inside Cart */
+        .checkout-form { display: flex; flex-direction: column; gap: 10px; }
+        .checkout-form label { font-size: 0.85rem; font-weight: bold; color: #555; }
+        .checkout-form input { padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-body); }
+        .checkout-form button { margin-top: 10px; width: 100%; background-color: #25D366; border-color: #25D366; } /* WhatsApp Green color override */
+        .checkout-form button:hover { background-color: transparent; color: #25D366; }
+
+        @media (max-width: 900px) {
+            .store-container { flex-direction: column; }
+            .cart-sidebar { position: static; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="pattern-border"></div>
+    
+    <header>
+        <div class="hamburger"><span></span><span></span><span></span></div>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Ankara Wear Logo">
+        </div>
+        <nav id="main-nav">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="store.html" style="color: var(--accent-gold);">Store</a>
+            <a href="bespoke.html">Bespoke</a>
+        </nav>
+    </header>
+
+    <div class="store-header">
+        <p>NEW ARRIVALS:</p>
+        <h1>Timeless Style, Crafted with Heart.</h1>
+    </div>
+
+    <div class="store-container">
+        <!-- Products Grid -->
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="images/product1.jpg" alt="Ankara Skirt">
+                <h3>Ankara Gathered Skirt</h3>
+                <div class="price">$45.00</div>
+                <button class="btn-primary" onclick="addToCart('Ankara Gathered Skirt', 45)">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="images/product2.jpg" alt="Tailored Ankara Shirt">
+                <h3>Tailored Print Shirt</h3>
+                <div class="price">$60.00</div>
+                <button class="btn-primary" onclick="addToCart('Tailored Print Shirt', 60)">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="images/product3.jpg" alt="Bespoke Jacket">
+                <h3>Signature Bespoke Jacket</h3>
+                <div class="price">$120.00</div>
+                <button class="btn-primary" onclick="addToCart('Signature Bespoke Jacket', 120)">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="images/product4.jpg" alt="Ankara Dress">
+                <h3>Wrap Midi Dress</h3>
+                <div class="price">$85.00</div>
+                <button class="btn-primary" onclick="addToCart('Wrap Midi Dress', 85)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Sidebar Interactive Cart -->
+        <div class="cart-sidebar">
+            <h2>Your Selection</h2>
+            <div id="cart-items-container" class="cart-items">
+                <p style="color: #888; font-style: italic;">Your cart is empty.</p>
+            </div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-value">$0.00</span>
+            </div>
+
+            <!-- Checkout Form processing to PHP -->
+            <form class="checkout-form" action="process_order.php" method="POST" onsubmit="return verifyCart()">
+                <!-- Hidden inputs to send raw cart data to PHP safely -->
+                <input type="hidden" id="hidden-cart-data" name="cart_data">
+                <input type="hidden" id="hidden-cart-total" name="cart_total">
+
+                <label for="client_name">Your Name</label>
+                <input type="text" id="client_name" name="client_name" required placeholder="Full Name">
+
+                <label for="client_location">Delivery City / Suburb</label>
+                <input type="text" id="client_location" name="client_location" required placeholder="e.g., Mutare CBD or Harare">
+
+                <button type="submit" class="btn-primary">Order via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
+            <a href="refund.html">Refund Policy</a>
+            <a href="bespoke.html">Contact Us</a>
+        </div>
+        <p>&copy; 2026 Ankara Wear. Handcrafted in Africa. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    
+    <!-- Client Side JavaScript Cart Logic -->
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            // Check if item already exists in cart, if yes increase quantity
+            let existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name: name, price: price, quantity: 1 });
+            }
+            updateCartUI();
+        }
+
+        // NEW FUNCTION: Remove from Cart
+        function removeFromCart(index) {
+            // Remove 1 element at the given index
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items-container');
+            const totalDisplay = document.getElementById('cart-total-value');
+            
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="color: #888; font-style: italic;">Your cart is empty.</p>';
+                totalDisplay.innerText = '$0.00';
+                
+                // Clear hidden fields when empty
+                document.getElementById('hidden-cart-data').value = "";
+                document.getElementById('hidden-cart-total').value = "0.00";
+                return;
+            }
+
+            container.innerHTML = '';
+            let total = 0;
+
+            // Updated loop to pass the array 'index' to our HTML layout
+            cart.forEach((item, index) => {
+                let itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                // We add the 'remove-btn' and structure the layout with divs
+                container.innerHTML += `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <span>${item.name} (x${item.quantity})</span>
+                        </div>
+                        <div class="cart-item-actions">
+                            <span>$${itemTotal.toFixed(2)}</span>
+                            <button type="button" class="remove-btn" onclick="removeFromCart(${index})" title="Remove item">×</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            totalDisplay.innerText = `$${total.toFixed(2)}`;
+            
+            // Serialize cart array into text strings to pass smoothly to our PHP handler
+            document.getElementById('hidden-cart-data').value = JSON.stringify(cart);
+            document.getElementById('hidden-cart-total').value = total.toFixed(2);
+        }
+
+        function verifyCart() {
+            if (cart.length === 0) {
+                alert('Please add at least one item to your selection before checking out.');
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

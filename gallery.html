@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Ankara Wear offers meticulously handcrafted African fashion and bespoke tailoring. Discover timeless style, richly textured fabrics, and cultural heritage in every stitch.">
+    <meta name="keywords" content="Ankara Wear, African fashion, bespoke tailoring, handcrafted clothing, Ankara prints, African dresses, Mutare tailoring">
+    <meta name="author" content="Ankara Wear">
+    <title>Ankara Wear | Handcrafted Fashion & Tailoring</title>
+    
+<!--Favicon-->
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="manifest" href="images/site.webmanifest">   
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .gallery-container { padding: 4rem 5%; }
+        .gallery-title { text-align: center; font-family: var(--font-heading); font-size: 3rem; margin-bottom: 3rem; }
+        
+        .masonry-layout {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        .masonry-item { overflow: hidden; }
+        .masonry-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .masonry-item:hover img { transform: scale(1.05); }
+        .masonry-item.large { grid-column: span 2; height: 600px; }
+        
+        @media (max-width: 768px) {
+            .masonry-layout { grid-template-columns: 1fr; }
+            .masonry-item.large { grid-column: span 1; height: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="pattern-border"></div>
+    
+    <header>
+        <div class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+        
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Ankara Wear Logo">
+        </div>
+
+        <nav id="main-nav">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="store.html">Store</a>
+            <a href="bespoke.html">Bespoke</a>
+        </nav>
+    </header>
+
+    <div class="gallery-container">
+        <h1 class="gallery-title">The Archive</h1>
+        <div class="masonry-layout">
+            <div class="masonry-item large">
+                <img src="images/22.jpg" alt=" Ankara gown">
+            </div>
+            <div class="masonry-item">
+                <img src="images/store/17.jpeg" alt="Close up of one of our dresses">
+            </div>
+            <div class="masonry-item">
+                <img src="images/store/16.jpeg" alt="Close up of one of our dresses">
+            </div>
+            <div class="masonry-item">
+                <img src="images/store/18.jpeg" alt="Close up of one of our dresses">
+            </div>
+            <div class="masonry-item">
+                <img src="images/store/9.jpeg" alt="Close up of one of our dresses">
+            </div>
+
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
+            <a href="refund.html">Refund Policy</a>
+            <a href="bespoke.html">Contact Us</a>
+        </div>
+        <p>&copy; 2026 Ankara Wear. Handcrafted in Africa. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

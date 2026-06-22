@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Ankara Wear offers meticulously handcrafted African fashion and bespoke tailoring. Discover timeless style, richly textured fabrics, and cultural heritage in every stitch.">
+    <meta name="keywords" content="Ankara Wear, African fashion, bespoke tailoring, handcrafted clothing, Ankara prints, African dresses, Mutare tailoring">
+    <meta name="author" content="Ankara Wear">
+    <title>Ankara Wear | Handcrafted Fashion & Tailoring</title>
+    
+    <link rel="stylesheet" href="styles.css">
+
+
+<style>
+    .hero {
+        text-align: center;
+        padding: 4rem 5%;
+        background: url('path-to-draped-fabric-bg.jpg') center/cover;
+    }
+    .hero img { width: 100%; max-width: 600px; margin-bottom: 2rem; }
+    .hero h1 { font-family: var(--font-heading); font-size: 3rem; color: var(--accent-gold); margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem; }
+    
+    .editorial-section {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: var(--secondary-bg);
+        color: var(--text-light);
+    }
+    .editorial-text { flex: 1; padding: 4rem 5%; display: flex; flex-direction: column; justify-content: center; }
+    .editorial-text h2 { font-family: var(--font-heading); font-size: 2.5rem; color: var(--accent-gold); }
+    .editorial-image { flex: 1; background: url('path-to-editorial-group-photo.jpg') center/cover; min-height: 400px; }
+</style>
+
+
+
+
+
+
+</head>
+<body>
+
+    <div class="pattern-border"></div>
+    
+    <header>
+        <div class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+        <nav id="left-nav">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+        </nav>
+        <div class="logo-container">
+            <!-- Replace src with actual logo file path -->
+            <img src="logo.png" alt="Ankara Wear Logo">
+        </div>
+        <nav id="right-nav">
+            <a href="store.html">Store</a>
+            <a href="bespoke.html">Bespoke</a>
+        </nav>
+    </header>
+
+    <!-- [INSERT PAGE-SPECIFIC CONTENT HERE] -->
+
+
+<section class="hero">
+    <!-- Image of the antique sewing machine -->
+    <img src="sewing-machine-hero.png" alt="Antique Sewing Machine and Fabric">
+    <h1>The Fabric of Our Story</h1>
+    <p>Meticulously Handcrafted, Culturally Inspired, Richly Textured. Explore our legacy.</p>
+    <a href="store.html" class="btn-primary">Explore the Collection</a>
+</section>
+
+<section class="editorial-section">
+    <div class="editorial-image"></div>
+    <div class="editorial-text">
+        <h2>Africa Reimagined. <br>Prints that Speak. <br>Stories that Live.</h2>
+        <br>
+        <p>Our people and our process are deeply rooted in the traditions of African textile artistry, brought into the modern era with precision tailoring.</p>
+    </div>
+</section>
+
+
+
+    <footer>
+        <div class="footer-links">
+            <a href="policies.html#privacy">Privacy Policy</a>
+            <a href="policies.html#terms">Terms of Use</a>
+            <a href="policies.html#refund">Refund Policy</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <p>&copy; 2026 Ankara Wear. Handcrafted in Africa. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

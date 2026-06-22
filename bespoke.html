@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book a bespoke tailoring consultation with Ankara Wear. Custom dress design, men's suits, and personalized fittings handcrafted in Africa.">
+    <title>Bespoke Tailoring | Ankara Wear</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">   
+
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Bespoke Page Specific Styles */
+        .bespoke-container {
+            display: flex;
+            min-height: 80vh;
+            background-color: var(--primary-bg);
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .bespoke-image-side {
+            flex: 1;
+            /* Placeholder for the image of the tailor working on the sewing machine */
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 40%), url('bespoke-maker-bg.jpg') center/cover no-repeat;
+            position: relative;
+            min-height: 500px;
+        }
+
+        .maker-info {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            color: #fff;
+        }
+
+        .maker-info p {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            font-weight: 300;
+        }
+
+        .maker-info h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--primary-bg);
+        }
+
+        .bespoke-text-side {
+            flex: 1;
+            padding: 5rem 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .bespoke-text-side h1 {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            line-height: 1.2;
+            color: var(--text-dark);
+            margin-bottom: 3rem;
+        }
+
+        .service-list {
+            margin-bottom: 3rem;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            gap: 15px;
+        }
+
+        .service-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: repeating-linear-gradient(45deg, var(--secondary-bg), var(--secondary-bg) 4px, var(--accent-gold) 4px, var(--accent-gold) 8px);
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        .service-details h4 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--secondary-bg);
+            margin-bottom: 5px;
+        }
+
+        .service-details p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* Booking Form Section */
+        .booking-section {
+            padding: 5rem 5%;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .booking-section h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .booking-section > p {
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .booking-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .booking-form label {
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--secondary-bg);
+            font-size: 0.9rem;
+        }
+
+        .booking-form input, .booking-form select, .booking-form textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            background-color: var(--primary-bg);
+        }
+
+        .booking-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .booking-form button {
+            grid-column: span 2;
+            margin-top: 10px;
+            font-size: 1.1rem;
+            padding: 15px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .bespoke-container {
+                flex-direction: column;
+            }
+            .bespoke-image-side {
+                min-height: 400px;
+            }
+            .booking-form {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            .booking-form button {
+                grid-column: span 1;
+            }
+        }
+        
+        /* Success Message Styling */
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            border: 1px solid #c3e6cb;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="pattern-border"></div>
+    
+    <header>
+        <div class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+        
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Ankara Wear Logo">
+        </div>
+
+        <nav id="main-nav">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="store.html">Store</a>
+            <a href="bespoke.html" style="color: var(--accent-gold);">Bespoke</a>
+        </nav>
+    </header>
+
+    <div class="bespoke-container">
+        <div class="bespoke-image-side">
+            <div class="maker-info">
+                <p>Meet the Maker:</p>
+                <h3>Adisa of Ankara Wear</h3>
+            </div>
+        </div>
+        
+        <div class="bespoke-text-side">
+            <h1>Bespoke Tailoring.<br>Your Vision, Our Hands.</h1>
+            
+            <div class="service-list">
+                <div class="service-item">
+                    <div class="service-icon"></div>
+                    <div class="service-details">
+                        <h4>Custom Dress Design</h4>
+                        <p>Collaborate with our master tailors to sketch, source, and stitch a garment completely unique to your body and style.</p>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon"></div>
+                    <div class="service-details">
+                        <h4>Men's Suits</h4>
+                        <p>Precision-cut suits blending traditional European tailoring techniques with vibrant, authentic African textiles.</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-icon"></div>
+                    <div class="service-details">
+                        <h4>Textile Selection</h4>
+                        <p>Gain access to our exclusive archive of ethically sourced Ankara, Kente, and mud cloth directly from artisans across the continent.</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-icon"></div>
+                    <div class="service-details">
+                        <h4>Fitting Consultations</h4>
+                        <p>Experience the luxury of multiple in-studio fittings to ensure your garment drapes flawlessly.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <a href="#booking-section" class="btn-primary">Book a Consultation</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="booking-section" class="booking-section">
+        <h2>Schedule Your Fitting</h2>
+        <p>Begin your bespoke journey. Fill out the form below to request an initial consultation at our Mutare studio or via video call.</p>
+        
+        <div id="form-success" class="success-message">
+            Thank you! Your consultation request has been sent. We will be in touch shortly.
+        </div>
+
+        <form class="booking-form" action="process_booking.php" method="POST">
+            
+            <div class="form-group full-width">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required placeholder="Jane Doe">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="jane@example.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="+263 ...">
+            </div>
+
+            <div class="form-group full-width">
+                <label for="service">Service of Interest</label>
+                <select id="service" name="service" required>
+                    <option value="" disabled selected>Select a bespoke service...</option>
+                    <option value="Custom Dress Design">Custom Dress Design</option>
+                    <option value="Men's Suit Tailoring">Men's Suit Tailoring</option>
+                    <option value="Premium Alterations">Premium Alterations</option>
+                    <option value="Other">Other / Not Sure Yet</option>
+                </select>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="message">Tell us about your vision</label>
+                <textarea id="message" name="message" required placeholder="Describe the occasion, the style you're looking for, or any specific fabrics you have in mind..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary">Submit Request</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
+            <a href="refund.html">Refund Policy</a>
+            <a href="bespoke.html">Contact Us</a>
+        </div>
+        <p>&copy; 2026 Ankara Wear. Handcrafted in Africa. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Smooth scroll for the "Book a Consultation" button
+        document.querySelector('a[href="#booking-section"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Check URL for PHP success status and show message
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('status') === 'success') {
+                document.getElementById('form-success').style.display = 'block';
+                // Optionally clear the URL parameter so it doesn't stay on refresh
+                window.history.replaceState(null, null, window.location.pathname + '#booking-section');
+            } else if (urlParams.get('status') === 'error') {
+                alert('There was a problem sending your message. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>

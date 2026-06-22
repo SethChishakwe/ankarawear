@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Ankara Wear offers meticulously handcrafted African fashion and bespoke tailoring. Discover timeless style, richly textured fabrics, and cultural heritage in every stitch.">
+    <meta name="keywords" content="Ankara Wear, African fashion, bespoke tailoring, handcrafted clothing, Ankara prints, African dresses, Mutare tailoring">
+    <meta name="author" content="Ankara Wear">
+    <title>Ankara Wear | Handcrafted Fashion & Tailoring</title>
+
+<!--Favicon-->
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="manifest" href="images/site.webmanifest">    
+
+
+
+    <link rel="stylesheet" href="styles.css">
+
+<style>
+    /* Prevent Horizontal Scrolling Globally */
+    html, body {
+        overflow-x: hidden;
+    }
+    
+    /* Image constraint fix */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .hero {
+        text-align: center;
+        padding: 4rem 5%;
+        background: url('path-to-draped-fabric-bg.jpg') center/cover;
+    }
+    .hero img { width: 100%; max-width: 600px; margin-bottom: 2rem; }
+    .hero h1 { font-family: var(--font-heading); font-size: 3rem; color: var(--accent-gold); margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem; }
+    
+    .editorial-section {
+        display: flex;
+        background-color: var(--secondary-bg);
+        color: var(--text-light);
+    }
+    
+    .editorial-text { 
+        flex: 1; 
+        padding: 4rem 5%; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+    }
+    
+    .editorial-text h2 { 
+        font-family: var(--font-heading); 
+        font-size: 2.5rem; 
+        color: var(--accent-gold); 
+    }
+    
+    /* ASPECT RATIO FIX: Let the image dictate the height */
+    .editorial-image { 
+        flex: 1; 
+        display: flex;
+    }
+    
+    .editorial-image img {
+        width: 100%;
+        height: auto; /* This guarantees the aspect ratio stays proportional */
+        object-fit: cover; 
+    }
+
+    /* --- UPDATED HEADER & NAV STYLES --- */
+    header {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo-container {
+        flex: none;
+        z-index: 10;
+    }
+
+    #main-nav {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Desktop View */
+    @media (min-width: 769px) {
+        .hamburger { display: none; }
+        header { justify-content: center; }
+        
+        .logo-container {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        #main-nav {
+            width: 100%;
+            justify-content: center;
+            gap: 3rem;
+        }
+        
+        /* Creates the split gap for the logo in the center */
+        #main-nav a:nth-child(2) {
+            margin-right: 200px; 
+        }
+    }
+
+    /* Mobile View */
+    @media (max-width: 768px) {
+        /* Force the editorial section to stack vertically on mobile */
+        .editorial-section {
+            flex-direction: column; 
+        }
+
+        header { padding: 1rem 5%; }
+        
+        #main-nav {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary-bg, #f5f3ec);
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-gold, #b38b4d);
+            gap: 1.5rem;
+            z-index: 999;
+        }
+        
+        #main-nav.active {
+            display: flex;
+        }
+        
+        /* Reset the desktop split gap */
+        #main-nav a:nth-child(2) {
+            margin-right: 0;
+        }
+    }
+</style>
+
+</head>
+<body>
+
+    <div class="pattern-border"></div>
+    
+    <header>
+        <div class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+        
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Ankara Wear Logo">
+        </div>
+
+        <nav id="main-nav">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="store.html">Store</a>
+            <a href="bespoke.html">Bespoke</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <img src="images/22.jpg" alt="Antique Sewing Machine and Fabric">
+        <h1>The Fabric of Our Story</h1>
+        <p>Meticulously Handcrafted, Culturally Inspired, Richly Textured. Explore our legacy.</p>
+        <a href="store.html" class="btn-primary">Explore the Collection</a>
+    </section>
+
+    <section class="editorial-section">
+        <div class="editorial-image">
+            <img src="images/23.png" alt="Lady in our clothing">
+        </div>
+        <div class="editorial-text">
+            <h2>Africa Reimagined. <br>Prints that Speak. <br>Stories that Live.</h2>
+            <br>
+            <p>Our people and our process are deeply rooted in the traditions of African textile artistry, brought into the modern era with precision tailoring.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
+            <a href="refund.html">Refund Policy</a>
+            <a href="bespoke.html">Contact Us</a>
+        </div>
+        <p>&copy; 2026 Ankara Wear. Handcrafted in Africa. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.getElementById('main-nav');
+
+            hamburger.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
